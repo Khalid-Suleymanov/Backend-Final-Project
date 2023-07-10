@@ -7445,6 +7445,10 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\2f0525da-1981-478f-87a9-73d87188ca31product-details-img1.jpg"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\3911eb18-f8a1-40a7-9a19-fef64f064f76BrandLogo-2.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\3911eb18-f8a1-40a7-9a19-fef64f064f76BrandLogo-2.png"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\417d04b7-0dd1-4d4b-bb1c-4a615c89ecb7SaveProduct-2.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\417d04b7-0dd1-4d4b-bb1c-4a615c89ecb7SaveProduct-2.png"
     },
@@ -7477,12 +7481,12 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\8ecfb518-42ea-444e-9ef4-e07e2bd21804SaveProduct-4.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\907450b7-f8a0-4f80-be22-aedf9192c0acBrandLogo-4.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\907450b7-f8a0-4f80-be22-aedf9192c0acBrandLogo-4.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\9ef9eaa7-3e8e-4725-bea7-7794181961bbProSave-2.png",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\9ef9eaa7-3e8e-4725-bea7-7794181961bbProSave-2.png"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\a3923045-1848-45e1-a1eb-0067dafe00f3pr-1.png",
@@ -7497,8 +7501,24 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\a5d9a35f-3c66-4f43-93d6-b56c24fc9967ProSave-1.jpg"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\b2802b43-2b1b-45c3-8610-f72a9740141aBrandLogo-3.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\b2802b43-2b1b-45c3-8610-f72a9740141aBrandLogo-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\b99a29c5-88ac-450c-94dc-eb74086af2d3ProSave-2.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\b99a29c5-88ac-450c-94dc-eb74086af2d3ProSave-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\d159f1c7-09e4-46db-8df0-64c08636ca5cBrandLogo-1.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\d159f1c7-09e4-46db-8df0-64c08636ca5cBrandLogo-1.png"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\e6e130d9-c614-4215-9efb-58181216718bSaveProduct-3.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\e6e130d9-c614-4215-9efb-58181216718bSaveProduct-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\ead70880-5b01-4d7e-ae58-de51125a756dBrandLogo-2.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\ead70880-5b01-4d7e-ae58-de51125a756dBrandLogo-2.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\eca48672-fd46-42ce-90d4-4625600a3f5cpr-1.png",

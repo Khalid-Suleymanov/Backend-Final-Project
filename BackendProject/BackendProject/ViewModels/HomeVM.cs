@@ -12,5 +12,7 @@ namespace BackendProject.ViewModels
 
         public List<Product> NewProducts { get; set; }
 
+        public List<FourBrand> FourBrands { get; set; }
+
     }
 }

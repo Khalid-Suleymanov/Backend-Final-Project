@@ -19,6 +19,7 @@ namespace BackendProject.Controllers
             {
                 Sliders = _context.Sliders.OrderBy(x=>x.Order).ToList(),
                 Features = _context.Features.Take(3).ToList(),
+                FourBrands = _context.FourBrands.Take(5).ToList(),
                 Products = _context.Products
                 .Include(x=>x.Brand)
                 .Include(x=>x.Category)
@@ -33,7 +34,7 @@ namespace BackendProject.Controllers
                 .Include(x => x.Color)
                 .Include(x => x.ProductSizes)
                 .ThenInclude(p => p.Size)
-                .Include(x => x.Images.Where(x => x.ImageStatus == true)).Where(x=>x.IsNew == true).Take(5).ToList(),
+                .Include(x => x.Images.Where(x => x.ImageStatus == true)).Where(x=>x.IsNew == true).Take(6).ToList(),
             };
             
             return View(homeVM);

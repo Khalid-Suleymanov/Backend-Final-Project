@@ -107,6 +107,23 @@ namespace BackendProject.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("BackendProject.Models.FourBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Image")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FourBrands");
+                });
+
             modelBuilder.Entity("BackendProject.Models.Image", b =>
                 {
                     b.Property<int>("Id")
