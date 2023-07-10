@@ -16,13 +16,11 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Brand</th>
-                        <th scope="col">Description</th>
                         <th scope="col">SalePrice</th>
                         <th scope="col">CostPrice</th>
                         <th scope="col">DiscountedPrice</th>
                         <th scope="col">Category</th>
                         <th scope="col">Size</th>
-                        <th scope="col">Color</th>
                         <th scope="col">Image</th>
                     </tr>
                 </thead>
@@ -37,16 +35,14 @@
                             </td>
                             <th scope="row">@dataOrder</th>
                             <td>@item.Name</td>
-                            <td>@item.Brand</td>
-                            <td>@item.Description</td>
+                            <td>@item.Brand.Name</td>
                             <td>@item.SalePrice</td>
                             <td>@item.CostPrice</td>
                             <td>@item.DiscountedPrice</td>
-                            <td>@item.CategoryId</td>
-                            <td>@item.SizeIds</td>
-                            <td>@item.Color</td>
+                            <td>@item.Category.Name</td>
+                            <td>@string.Join(",",item.ProductSizes.Select(x=>x.Size.Name))</td>
                             <td>
-                                <img width="150" src="~/Manage/Uploads/Products/@item.Images.FirstOrDefault()?.ImageName">
+                                <img width="100" src="~/Manage/Uploads/Products/@item.Images.FirstOrDefault()?.ImageName">
                             </td>
                         </tr>
                     }

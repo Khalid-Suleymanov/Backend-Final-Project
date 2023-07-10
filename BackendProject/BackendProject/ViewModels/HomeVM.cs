@@ -10,5 +10,7 @@ namespace BackendProject.ViewModels
 
         public List<Product> Products { get; set; }
 
+        public List<Product> NewProducts { get; set; }
+
     }
 }

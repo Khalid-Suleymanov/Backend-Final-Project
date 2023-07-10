@@ -10752,11 +10752,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Khalid Suleymanov\\Desktop\\BackendProject\\BackendProject\\BackendProject.csproj",
+      "projectUniqueName": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\BackendProject.csproj",
       "projectName": "BackendProject",
-      "projectPath": "C:\\Users\\Khalid Suleymanov\\Desktop\\BackendProject\\BackendProject\\BackendProject.csproj",
+      "projectPath": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\BackendProject.csproj",
       "packagesPath": "C:\\Users\\Khalid Suleymanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Khalid Suleymanov\\Desktop\\BackendProject\\BackendProject\\obj\\",
+      "outputPath": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Khalid Suleymanov\\AppData\\Roaming\\NuGet\\NuGet.Config",

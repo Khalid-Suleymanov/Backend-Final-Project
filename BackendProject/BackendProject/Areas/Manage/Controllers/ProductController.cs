@@ -21,11 +21,11 @@ namespace BackendProject.Areas.Manage.Controllers
         {
             ViewBag.Search = search;
             var query = _context.Products
-                .Include(p => p.Category)
-                .Include(p=>p.Brand)
-                .Include(p=>p.Color)
-                .Include(p=>p.Images.Where(p=>p.ImageStatus==true))
-                .Include(p=>p.ProductSizes)
+                .Include(x => x.Category)
+                .Include(x=>x.Brand)
+                .Include(x => x.Color)
+                .Include(x=>x.Images.Where(p=>p.ImageStatus==true))
+                .Include(x=>x.ProductSizes)
                 .ThenInclude(p=>p.Size).AsQueryable();
             if(search != null)
             {
@@ -167,7 +167,7 @@ namespace BackendProject.Areas.Manage.Controllers
                 {
                     return View("Error");
                 }
-                product.ProductSizes.Add(new ProductSize
+                existProd.ProductSizes.Add(new ProductSize
                 {
                     SizeId = item
                 });
@@ -181,6 +181,7 @@ namespace BackendProject.Areas.Manage.Controllers
             existProd.ColorId = product.ColorId;
             existProd.BrandId = product.BrandId;
             existProd.DiscountedPrice = product.DiscountedPrice;
+            existProd.IsNew= product.IsNew;
 
             List<string> removableAllImages = new List<string>();
             if(product.ImageFile!= null)

@@ -45,5 +45,6 @@ namespace BackendProject.Models
         public int ColorId { get; set; }
         public Color Color { get; set; }
         public GenderStatus Status { get; set; }
+        public bool IsNew { get; set; }
     }
 }
