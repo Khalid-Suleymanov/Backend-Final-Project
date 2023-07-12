@@ -81,11 +81,10 @@ namespace BackendProject.Controllers
                     Product = _context.Products.Include(x => x.Images.Where(x => x.ImageStatus == true)).FirstOrDefault(x => x.Id == ci.ProductId)
                 };
                 basketVM.basketItems.Add(item);
-                basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+                basketVM.TotalAmount += ((item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count);
             }
             return PartialView("_BasketPartial", basketVM);
         }
-                                
 
         public IActionResult ShowBasket()
         {
@@ -93,5 +92,60 @@ namespace BackendProject.Controllers
             var data = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(datastr);
             return Json(data);
         }
+
+        public IActionResult GetBasketCount()
+        {
+            string? dataStr = HttpContext.Request.Cookies["basket"];
+            var data = dataStr == null ? null : JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(dataStr);
+            var count = data?.Count ?? 0;
+            var response = new
+            {
+                count
+            };
+            return Json(response);
+        }
+
+        public IActionResult RemoveFromBasket(int id)
+        {
+            var basketStr = Request.Cookies["basket"];
+
+            List<BasketCookieItemViewModel> cookieItems = null;
+
+            if (basketStr == null)
+                cookieItems = new List<BasketCookieItemViewModel>();
+            else
+                cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
+
+            var itemToRemove = cookieItems.FirstOrDefault(x => x.ProductId == id);
+
+            if (itemToRemove != null)
+            {
+                cookieItems.Remove(itemToRemove);
+
+                HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(cookieItems));
+
+            }
+
+
+            BasketViewModel basketVM = new BasketViewModel();
+
+            if (cookieItems != null)
+            {
+                foreach (var ci in cookieItems)
+                {
+                    BasketItemVM item = new BasketItemVM
+                    {
+                        Count = ci.Count,
+                        Product = _context.Products.Include(x => x.Images.Where(x => x.ImageStatus == true)).FirstOrDefault(x => x.Id == ci.ProductId)
+                    };
+                    basketVM.basketItems.Add(item);
+                    basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+                }
+            }
+
+            return PartialView("_BasketPartial", basketVM);
+
+        }
     }
+
 }

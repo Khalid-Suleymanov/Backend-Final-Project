@@ -17,6 +17,15 @@ namespace BackendProject.Services
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
+        public List<Category> GetCategories()
+        {
+            return _context.Categories.ToList();
+        }
+
+        public List<Brand> GetBrands()
+        {
+            return _context.Brands.ToList();
+        }
         public List<Product> GetProducts()
         {
             return _context.Products.ToList();

@@ -177,6 +177,9 @@ namespace BackendProject.Migrations
                     b.Property<decimal>("DiscountedPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
 

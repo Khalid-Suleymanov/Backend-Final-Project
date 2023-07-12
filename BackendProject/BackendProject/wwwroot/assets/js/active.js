@@ -31,10 +31,11 @@
 		$(".minicart-inner").addClass('show')
 	})
 
-	$(".offcanvas-close, .minicart-close,.offcanvas-overlay").on('click', function(){
-		$("body").removeClass('fix');
-		$(".offcanvas-search-inner, .minicart-inner").removeClass('show')
-	})
+
+	//$(".offcanvas-close, .minicart-close,.offcanvas-overlay").on('click', function(){
+	//	$("body").removeClass('fix');
+	//	$(".offcanvas-search-inner, .minicart-inner").removeClass('show')
+	//})
 
 	// nice select active start
 	$('select').niceSelect();

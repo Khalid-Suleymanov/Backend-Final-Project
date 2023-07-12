@@ -26,6 +26,7 @@ namespace BackendProject.Models
         public string Description { get; set; }
         [Required]
         public bool StockStatus { get; set; }
+        public bool IsDeleted { get; set; }
         public List<ProductSize> ProductSizes { get; set; } = new List<ProductSize>();
         public List<Image> Images { get; set; } = new List<Image>();
         [NotMapped]

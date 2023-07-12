@@ -1,11 +1,11 @@
-﻿
+﻿@inject LayoutService _layoutService
 
-@inject LayoutService _layoutService
-
-@*@{
-    var settings = _layoutService.GetProducts();
+@{
+    var categories = _layoutService.GetCategories();
+    var brands = _layoutService.GetBrands();
+    var basket = _layoutService.GetBasket();
 }
-*@
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <!-- Mirrored from demo.hasthemes.com/juan-preview-v1/juan/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Mar 2021 22:36:22 GMT -->
@@ -131,27 +131,27 @@
                             <div class="header-configure-wrapper">
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
-                                       <li>
-    <a href="#" class="offcanvas-btn">
-        <i class="ion-ios-search-strong"></i>
-    </a>
-</li>
-<li class="user-hover">
-    <a href="#">
-        <i class="ion-ios-gear-outline"></i>
-    </a>
-    <ul class="dropdown-list">
-        <li><a href="login-register.html">login</a></li>
-        <li><a href="login-register.html">register</a></li>
-        <li><a href="my-account.html">my account</a></li>
-    </ul>
-</li>
-<li>
-    <a href="#" class="minicart-btn">
-        <i class="ion-bag"></i>
-        <div class="notification">2</div>
-    </a>
-</li>
+                                        <li>
+                                            <a href="#" class="offcanvas-btn">
+                                                <i class="ion-ios-search-strong"></i>
+                                            </a>
+                                        </li>
+                                        <li class="user-hover">
+                                            <a href="#">
+                                                <i class="ion-ios-gear-outline"></i>
+                                            </a>
+                                            <ul class="dropdown-list">
+                                                <li><a href="login-register.html">login</a></li>
+                                                <li><a href="login-register.html">register</a></li>
+                                                <li><a href="my-account.html">my account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="minicart-btn">
+                                                <i class="ion-bag"></i>
+                                                <div class="notification" id="basket-count">@basket.basketItems.Count</div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -472,31 +472,27 @@
                     <div class="col-xl-2 col-lg-3 col-md-6">
                         <div class="widget-item mt-40">
                             <h5 class="widget-title">Categories</h5>
-                            <div class="widget-body">
-                                <ul class="useful-link">
-                                    <li><a href="#">Ecommerce</a></li>
-                                    <li><a href="#">Shopify</a></li>
-                                    <li><a href="#">Prestashop</a></li>
-                                    <li><a href="#">Opencart</a></li>
-                                    <li><a href="#">Magento</a></li>
-                                    <li><a href="#">Jigoshop</a></li>
-                                </ul>
-                            </div>
+                            @foreach (var item in categories)
+                            {
+                                <div class="widget-body">
+                                    <ul class="useful-link">
+                                        <li class="ptb-30"><a href="#">@item.Name</a></li>
+                                    </ul>
+                                </div>
+                            }
                         </div>
                     </div>
                     <!-- footer widget item end -->
                     <!-- footer widget item start -->
                     <div class="col-xl-2 col-lg-3 col-md-6">
                         <div class="widget-item mt-40">
-                            <h5 class="widget-title">Information</h5>
+                            <h5 class="widget-title">Brands</h5>
                             <div class="widget-body">
                                 <ul class="useful-link">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Returns & Exchanges</a></li>
-                                    <li><a href="#">Shipping & Delivery</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    @foreach (var item in brands)
+                                    {
+                                        <li><a href="#">@item.Name</a></li>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -505,15 +501,13 @@
                     <!-- footer widget item start -->
                     <div class="col-xl-2 col-lg-3 offset-xl-1 col-md-6">
                         <div class="widget-item mt-40">
-                            <h5 class="widget-title">Quick Links</h5>
+                            <h5 class="widget-title">Pages</h5>
                             <div class="widget-body">
                                 <ul class="useful-link">
-                                    <li><a href="#">Store Location</a></li>
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Orders Tracking</a></li>
-                                    <li><a href="#">Size Guide</a></li>
-                                    <li><a href="#">Shopping Rates</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a asp-action="index" asp-controller="home">Home</a></li>
+                                    <li><a asp-action="index" asp-controller="shop">Shop</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Basket</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -14,7 +14,7 @@ namespace BackendProject.ViewModels
 
         public List<FourBrand> FourBrands { get; set; }
 
-        public List<Category> Categories { get; set; }
+        public List<Category> Categories { get; set; }      
 
         public List<Color> Colors { get; set; }
 

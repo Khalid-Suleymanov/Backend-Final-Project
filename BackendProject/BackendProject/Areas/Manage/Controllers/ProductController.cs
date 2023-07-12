@@ -182,7 +182,6 @@ namespace BackendProject.Areas.Manage.Controllers
             existProd.BrandId = product.BrandId;
             existProd.DiscountedPrice = product.DiscountedPrice;
             existProd.IsNew= product.IsNew;
-
             List<string> removableAllImages = new List<string>();
             if(product.ImageFile!= null)
             {
@@ -206,7 +205,6 @@ namespace BackendProject.Areas.Manage.Controllers
             UpFileManage.DeleteAll(_env.WebRootPath, "Manage/Uploads/Products", removableAllImages);
             return RedirectToAction("Index");
         }
-
         public IActionResult Delete(int id)
         {
             var existProduct = _context.Products.FirstOrDefault(x => x.Id == id);

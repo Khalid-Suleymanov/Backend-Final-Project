@@ -87,7 +87,7 @@
                                         <a href="#" data-toggle="tooltip" title="Wishlist">
                                             <i class="ion-android-favorite-outline"></i>
                                         </a>
-                                        <a class="basket-add-btn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id">
+                                        <a class="basket-add-btn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" data-toggle="tooltip" title="Add To Cart">
                                             <i class="ion-bag"></i>
                                         </a>
                                         <a asp-action="getdetail" asp-controller="home" asp-route-id="@item.Id" class = "modal-btn">
@@ -189,7 +189,7 @@
                                             <a href="#" data-toggle="tooltip" title="Wishlist">
                                                 <i class="ion-android-favorite-outline"></i>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" title="Add To Cart">
+                                            <a class="basket-add-btn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" data-toggle="tooltip" title="Add To Cart">
                                                 <i class="ion-bag"></i>
                                             </a>
                                             <a href="#"
