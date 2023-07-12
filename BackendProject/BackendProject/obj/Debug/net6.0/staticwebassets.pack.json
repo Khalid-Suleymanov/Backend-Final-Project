@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Manage\\Assets\\css\\sb-admin-2.min.css"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\Background-color-shop.png",
+      "PackagePath": "staticwebassets\\Manage\\Assets\\img\\Background-color-shop.png"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\undraw_posting_photo.svg",
       "PackagePath": "staticwebassets\\Manage\\Assets\\img\\undraw_posting_photo.svg"
     },
@@ -7433,12 +7437,20 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\08128dd7-f01e-4009-8e7a-d794b7af06a7p231db.png"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\0bbbc0a6-188e-4df4-ba64-9a17ac61fd67Shop-9.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\0bbbc0a6-188e-4df4-ba64-9a17ac61fd67Shop-9.png"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\19f20923-5808-4b83-a495-1cd0fbc8e127pexels-web-donut-19090.jpg",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\19f20923-5808-4b83-a495-1cd0fbc8e127pexels-web-donut-19090.jpg"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\1a17031c-c03e-433f-b9a1-fbfd3ad22e2epr-1.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\1a17031c-c03e-433f-b9a1-fbfd3ad22e2epr-1.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\2e83158b-10cb-4753-b5f5-cc64fe3e8c47Shop-4.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\2e83158b-10cb-4753-b5f5-cc64fe3e8c47Shop-4.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\2f0525da-1981-478f-87a9-73d87188ca31product-details-img1.jpg",
@@ -7453,16 +7465,24 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\417d04b7-0dd1-4d4b-bb1c-4a615c89ecb7SaveProduct-2.png"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\43da1ff0-1e1a-4481-aeef-134f3acde450Shop-12.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\43da1ff0-1e1a-4481-aeef-134f3acde450Shop-12.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\4d756566-d45d-4689-b76e-a8a5ac054b20Shop-2.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\4d756566-d45d-4689-b76e-a8a5ac054b20Shop-2.png"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\4f4c3fd5-a64b-462b-960f-6fd6a8d70935pexels-web-donut-19090.jpg",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\4f4c3fd5-a64b-462b-960f-6fd6a8d70935pexels-web-donut-19090.jpg"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\5822d733-7a9c-43ec-8b35-8fd1ff24e92aProSave-3.png",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\5822d733-7a9c-43ec-8b35-8fd1ff24e92aProSave-3.png"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\5d983f37-c933-4a20-acca-a60f8c814a70shop-6.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\5d983f37-c933-4a20-acca-a60f8c814a70shop-6.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\59f777cf-b6c8-4b30-8210-7180bcebfb10ProSave-6.png",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\59f777cf-b6c8-4b30-8210-7180bcebfb10ProSave-6.png"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\6851709e-a140-4b96-b27f-b9b6234b3570SaveProduct-2.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\6851709e-a140-4b96-b27f-b9b6234b3570SaveProduct-2.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\7e880c6b-4636-49e1-954a-b84cec5afbb1product-details-img1.jpg",
@@ -7473,8 +7493,8 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\7eae8db6-8f33-4530-9137-04cf7fc9ff98SaveProduct-1.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\8d59c9f9-0f94-40f4-a139-70238b71ff5fProSave-4.png",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\8d59c9f9-0f94-40f4-a139-70238b71ff5fProSave-4.png"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\8a615657-f246-4e5b-a956-4105a216feb8Shop-7.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\8a615657-f246-4e5b-a956-4105a216feb8Shop-7.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\8ecfb518-42ea-444e-9ef4-e07e2bd21804SaveProduct-4.png",
@@ -7485,10 +7505,6 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\907450b7-f8a0-4f80-be22-aedf9192c0acBrandLogo-4.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\929e909d-d557-4b55-a644-fda95a12e959ProSave-5.jpg"
-    },
-    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\a3923045-1848-45e1-a1eb-0067dafe00f3pr-1.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\a3923045-1848-45e1-a1eb-0067dafe00f3pr-1.png"
     },
@@ -7497,16 +7513,12 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\a3e0dce7-e365-4ab1-bd80-314dd3513d70SaveProduct-5.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\a5d9a35f-3c66-4f43-93d6-b56c24fc9967ProSave-1.jpg",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\a5d9a35f-3c66-4f43-93d6-b56c24fc9967ProSave-1.jpg"
-    },
-    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\b2802b43-2b1b-45c3-8610-f72a9740141aBrandLogo-3.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\b2802b43-2b1b-45c3-8610-f72a9740141aBrandLogo-3.png"
     },
     {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\b99a29c5-88ac-450c-94dc-eb74086af2d3ProSave-2.png",
-      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\b99a29c5-88ac-450c-94dc-eb74086af2d3ProSave-2.png"
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\c6893cad-1c7d-4646-b058-e021a7ae19b4Shop-10.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\c6893cad-1c7d-4646-b058-e021a7ae19b4Shop-10.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\d159f1c7-09e4-46db-8df0-64c08636ca5cBrandLogo-1.png",
@@ -7523,6 +7535,26 @@
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\eca48672-fd46-42ce-90d4-4625600a3f5cpr-1.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\eca48672-fd46-42ce-90d4-4625600a3f5cpr-1.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\ed33a8f5-7a63-4e36-9108-9fa33cd4d2f8Shop-11.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\ed33a8f5-7a63-4e36-9108-9fa33cd4d2f8Shop-11.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\efffa65d-b6d7-49e7-ba1e-60df15a26b75product-details-img2.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\efffa65d-b6d7-49e7-ba1e-60df15a26b75product-details-img2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\f09ca25d-90c6-42f5-8671-7ee8340ec5fcShop-7.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\f09ca25d-90c6-42f5-8671-7ee8340ec5fcShop-7.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\f288de05-1809-41a4-978a-d7071adebb15shop-6.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\f288de05-1809-41a4-978a-d7071adebb15shop-6.png"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\f68e8410-18b7-4ffd-8f75-036c603df30dSaveProduct-4.png",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\f68e8410-18b7-4ffd-8f75-036c603df30dSaveProduct-4.png"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Sliders\\13abbfa2-3184-47ff-a32e-eff4427f3773p231db.png",
@@ -7871,6 +7903,10 @@
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\js\\active.js",
       "PackagePath": "staticwebassets\\assets\\js\\active.js"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\js\\modernizr-2.8.3.min.js",

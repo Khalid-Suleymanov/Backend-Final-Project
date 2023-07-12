@@ -20,7 +20,7 @@ namespace BackendProject.ViewModels
 
         public List<Size> Sizes { get; set; }
 
-
+        public List<Brand> Brands { get; set; }
 
     }
 }

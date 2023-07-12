@@ -27,9 +27,10 @@ namespace BackendProject.Controllers
                 .Include(x => x.Color)
                 .Include(x => x.ProductSizes)
                 .ThenInclude(p => p.Size)
-                .Include(x => x.Images.Where(x => x.ImageStatus == true)).ToList(),
+                .Include(x => x.Images.Where(x => x.ImageStatus == true)).Take(12).ToList(),
             };
             return View(homeVM);
         }
+        
     }
 }

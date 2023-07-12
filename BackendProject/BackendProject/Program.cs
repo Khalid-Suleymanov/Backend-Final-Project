@@ -1,10 +1,15 @@
 using BackendProject.DAL;
+using BackendProject.Services;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ProjectDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
+
+builder.Services.AddScoped<LayoutService>();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 app.MapControllerRoute(

@@ -41,7 +41,7 @@ namespace BackendProject.Areas.Manage.Controllers
             {
                 ModelState.AddModelError("ImageFile", "ImageFile must be .jpg,.jpeg or .png");
                 return View();
-            }
+            } 
             slider.Image = UpFileManage.Save(slider.ImageFile, _env.WebRootPath, "Manage/Uploads/Sliders");
             _context.Sliders.Add(slider);
             _context.SaveChanges();
