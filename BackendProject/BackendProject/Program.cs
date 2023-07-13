@@ -1,5 +1,7 @@
 using BackendProject.DAL;
+using BackendProject.Models;
 using BackendProject.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -10,7 +12,16 @@ opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 builder.Services.AddScoped<LayoutService>();
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+{
+    opt.Password.RequiredLength = 8;
+    opt.Password.RequireNonAlphanumeric = false;
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<ProjectDbContext>();
+
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
             name: "areas",

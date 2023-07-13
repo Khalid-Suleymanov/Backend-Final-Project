@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Humanizer.Localisation;
 using System.Drawing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class SliderController : Controller
     {

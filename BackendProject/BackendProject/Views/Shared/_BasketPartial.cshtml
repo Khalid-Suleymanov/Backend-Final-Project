@@ -4,7 +4,6 @@
     <i class="ion-android-close"></i>
 </div>
 <div class="minicart-content-box">
-
     <div class="minicart-item-wrapper">
         @foreach (var item in Model.basketItems)
         {
@@ -45,6 +44,6 @@
     </div>
 
     <div class="minicart-button">
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i> view cart</a>
+        <a asp-action="index" asp-controller="basket" asp-route-id="id"><i class="fa fa-shopping-cart"></i> view cart</a>
     </div>
 </div>

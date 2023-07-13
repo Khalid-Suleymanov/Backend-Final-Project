@@ -1,12 +1,14 @@
 ﻿using BackendProject.Areas.Manage.ViewModels;
 using BackendProject.DAL;
 using BackendProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
 using System.Security.Policy;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class CategoryController : Controller
     {

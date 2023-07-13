@@ -177,15 +177,12 @@
                                             <span><i class="ion-android-star"></i></span>
                                         </div>
                                         <div class="product-link-2">
-                                            <a href="#" data-toggle="tooltip" title="Wishlist">
-                                                <i class="ion-android-favorite-outline"></i>
-                                            </a>
                                             <a class="basket-add-btn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" data-toggle="tooltip" title="Add To Cart">
                                                 <i class="ion-bag"></i>
                                             </a>
-                                            <a href="#"
-                                           data-toggle="modal"
-                                           data-target="#quick_view">
+                                            <a asp-action="getdetail" asp-controller="home" asp-route-id="@item.Id" class="modal-btn"
+                                               data-toggle="modal"
+                                               data-target="#quick_view">
                                                 <span data-toggle="tooltip" title="Quick View">
                                                     <i class="ion-ios-eye-outline"></i>
                                                 </span>

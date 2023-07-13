@@ -86,14 +86,12 @@ namespace BackendProject.Controllers
             }
             return PartialView("_BasketPartial", basketVM);
         }
-
         public IActionResult ShowBasket()
         {
             var datastr = HttpContext.Request.Cookies["basket"];
             var data = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(datastr);
             return Json(data);
         }
-
         public IActionResult GetBasketCount()
         {
             string? dataStr = HttpContext.Request.Cookies["basket"];
@@ -105,7 +103,6 @@ namespace BackendProject.Controllers
             };
             return Json(response);
         }
-
         public IActionResult RemoveFromBasket(int id)
         {
             var basketStr = Request.Cookies["basket"];
@@ -113,23 +110,20 @@ namespace BackendProject.Controllers
             List<BasketCookieItemViewModel> cookieItems = null;
 
             if (basketStr == null)
+            {
                 cookieItems = new List<BasketCookieItemViewModel>();
+            }
             else
+            {
                 cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
-
+            }
             var itemToRemove = cookieItems.FirstOrDefault(x => x.ProductId == id);
-
             if (itemToRemove != null)
             {
                 cookieItems.Remove(itemToRemove);
-
                 HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(cookieItems));
-
             }
-
-
             BasketViewModel basketVM = new BasketViewModel();
-
             if (cookieItems != null)
             {
                 foreach (var ci in cookieItems)
@@ -143,9 +137,7 @@ namespace BackendProject.Controllers
                     basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
                 }
             }
-
             return PartialView("_BasketPartial", basketVM);
-
         }
     }
 

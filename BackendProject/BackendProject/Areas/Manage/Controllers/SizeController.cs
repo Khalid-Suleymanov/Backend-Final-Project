@@ -1,11 +1,13 @@
 ﻿using BackendProject.Areas.Manage.ViewModels;
 using BackendProject.DAL;
 using BackendProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class SizeController : Controller
     {

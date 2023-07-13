@@ -1,9 +1,10 @@
 ﻿using BackendProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendProject.DAL
 {
-    public class ProjectDbContext:DbContext
+    public class ProjectDbContext:IdentityDbContext
     {    
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options) { }
         public DbSet<Slider> Sliders { get; set; }
@@ -17,7 +18,7 @@ namespace BackendProject.DAL
         public DbSet<Image> Images { get; set; }
         public DbSet<FourBrand> FourBrands { get; set; }
         public DbSet<SportOff> SportOffs { get; set; }
-
+        public DbSet<AppUser> AppUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -2,10 +2,12 @@
 using BackendProject.DAL;
 using BackendProject.Helpers;
 using BackendProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class FourBrandController : Controller
     {
