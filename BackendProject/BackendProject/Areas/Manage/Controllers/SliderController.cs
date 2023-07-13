@@ -10,7 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, SuperAdmin")]
+
     [Area("manage")]
     public class SliderController : Controller
     {

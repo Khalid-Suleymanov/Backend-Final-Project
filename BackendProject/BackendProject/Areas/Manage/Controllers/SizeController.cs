@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, SuperAdmin")]
+
     [Area("manage")]
     public class SizeController : Controller
     {

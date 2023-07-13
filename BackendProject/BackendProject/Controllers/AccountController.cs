@@ -1,7 +1,9 @@
 ﻿using BackendProject.Models;
 using BackendProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BackendProject.Controllers
 {
@@ -9,11 +11,13 @@ namespace BackendProject.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         public IActionResult Register()
         {
             return View();
@@ -41,6 +45,8 @@ namespace BackendProject.Controllers
                 }
                 return View();
             }
+            await _userManager.AddToRoleAsync(user, "Member");
+
             return RedirectToAction("Login");
         }
 
@@ -50,7 +56,7 @@ namespace BackendProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(MemberLoginViewModel memberVM, string returnUrl = null)
+        public async Task<IActionResult> Login(MemberLoginViewModel memberVM)
         {
             if (!ModelState.IsValid) return View();
             AppUser member = await _userManager.FindByNameAsync(memberVM.UserName);
@@ -68,19 +74,16 @@ namespace BackendProject.Controllers
             return RedirectToAction("index", "home");
         }
 
-
+        [Authorize(Roles = "Member")]
         public IActionResult Profile()
         {
-            if (User.Identity.IsAuthenticated)
+            return Json(new
             {
-                return Content(User.Identity.Name);
-            }
-            else
-            {
-                return Content("Log Out");
-            }
+                UserName = User.Identity.Name,
+                Id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                Email = User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+            });
         }
-
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

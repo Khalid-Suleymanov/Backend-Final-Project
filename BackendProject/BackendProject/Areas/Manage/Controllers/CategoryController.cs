@@ -8,7 +8,8 @@ using System.Security.Policy;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, SuperAdmin")]
+
     [Area("manage")]
     public class CategoryController : Controller
     {
