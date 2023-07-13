@@ -90,7 +90,7 @@
                                         <a class="basket-add-btn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" data-toggle="tooltip" title="Add To Cart">
                                             <i class="ion-bag"></i>
                                         </a>
-                                        <a asp-action="getdetail" asp-controller="home" asp-route-id="@item.Id" class = "modal-btn">
+                                        <a asp-action="getdetail" asp-controller="home" asp-route-id="@item.Id" class="modal-btn">
                                             <span data-toggle="tooltip" title="Quick View">
                                                 <i class="ion-ios-eye-outline"></i>
                                             </span>
@@ -109,30 +109,21 @@
     <div class="banner-statistics">
         <div class="container">
             <div class="row no-gutters mtn-30">
-                <div class="col-md-6">
-                    <div class="img-container mt-30">
-                        <a href="product-details.html">
-                            <img src="~/assets/img/banner/banner-1.jpg"
+                @foreach (var item in Model.SportOffs)
+                {
+                    <div class="col-md-6">
+                        <div class="img-container mt-30">
+                            <a href="product-details.html">
+                                <img src="~/assets/img/banner/@item.Image"
                                  alt="banner-image" />
-                        </a>
-                        <div class="banner-text">
-                            <h5 class="banner-subtitle">sports shoes</h5>
-                            <h3 class="banner-title">20% Off<br />For Sports men</h3>
+                            </a>
+                            <div class="banner-text">
+                                <h5 class="banner-subtitle">@item.Title</h5>
+                                <h3 class="banner-title">@item.Desc1<br />@item.Desc2</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container mt-30">
-                        <a href="product-details.html">
-                            <img src="~/assets/img/banner/banner-2.jpg"
-                                 alt="banner-image" />
-                        </a>
-                        <div class="banner-text">
-                            <h5 class="banner-subtitle">sports shoes</h5>
-                            <h3 class="banner-title">20% Off<br />For Sports men</h3>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -236,7 +227,6 @@
 <div class="modal" id="quick_view">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-          
         </div>
     </div>
 </div>

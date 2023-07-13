@@ -22,5 +22,6 @@ namespace BackendProject.ViewModels
 
         public List<Brand> Brands { get; set; }
 
+        public List <SportOff> SportOffs { get; set; }
     }
 }

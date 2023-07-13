@@ -22,6 +22,7 @@ namespace BackendProject.Controllers
                 Sliders = _context.Sliders.OrderBy(x => x.Order).ToList(),
                 Features = _context.Features.Take(3).ToList(),
                 FourBrands = _context.FourBrands.Take(5).ToList(),
+                SportOffs = _context.SportOffs.Take(2).ToList(),
                 Products = _context.Products
                 .Include(x => x.Brand)
                 .Include(x => x.Category)
