@@ -47,5 +47,7 @@ namespace BackendProject.Models
         public Color Color { get; set; }
         public GenderStatus Status { get; set; }
         public bool IsNew { get; set; }
+        public ICollection<BasketItem> BasketItems { get; set; }
+
     }
 }

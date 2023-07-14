@@ -20,8 +20,12 @@
                         </h3>
                         <p>
                             <span class="cart-quantity">@item.Count<strong>&times;</strong></span>
-                            <span class="cart-price">$@(item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count</span>
+                            <span class="cart-price">$@((item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count)</span>
                         </p>
+
+
+
+
                         <p>
                             <span>Total price</span>
                             <span><strong>$@((item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count)</strong></span>

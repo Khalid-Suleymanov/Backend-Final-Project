@@ -30,30 +30,77 @@ namespace BackendProject.Services
         {
             return _context.Products.ToList();
         }
+
+
+
+
+
         public BasketViewModel GetBasket()
         {
             var basketVM = new BasketViewModel();
-            var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
-            List<BasketCookieItemViewModel> cookieItems = null;
-            if (basketStr == null)
+
+            if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
             {
-                cookieItems = new List<BasketCookieItemViewModel>();
+                string userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var databaseItems = _context.BasketItems.Include(x => x.Product).ThenInclude(x => x.Images.Where(bi => bi.ImageStatus == true)).Where(x => x.AppUserId == userId).ToList();
+                foreach (var dbItem in databaseItems)
+                {
+                    BasketItemVM item = new BasketItemVM
+                    {
+                        Count = dbItem.Count,
+                        Product = _context.Products.Include(x => x.Images).FirstOrDefault(x => x.Id == dbItem.ProductId)
+                    };
+                    basketVM.basketItems.Add(item);
+                    basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+                }
             }
             else
             {
-                cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
-            }
-            foreach (var cookieItem in cookieItems)
-            {
-                BasketItemVM item = new BasketItemVM
+                var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
+
+                if (basketStr != null)
                 {
-                    Count = cookieItem.Count,
-                    Product = _context.Products.Include(x=>x.Images).FirstOrDefault(x => x.Id == cookieItem.ProductId)
-                };
-                basketVM.basketItems.Add(item);
-                basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+                    List<BasketCookieItemViewModel> cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
+
+                    foreach (var cookieItem in cookieItems)
+                    {
+                        BasketItemVM item = new BasketItemVM
+                        {
+                            Count = cookieItem.Count,
+                            Product = _context.Products.Include(x => x.Images).FirstOrDefault(x => x.Id == cookieItem.ProductId)
+                        };
+                        basketVM.basketItems.Add(item);
+                        basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+                    }
+                }
             }
+
             return basketVM;
+
+
+
+            //var basketVM = new BasketViewModel();
+            //var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
+            //List<BasketCookieItemViewModel> cookieItems = null;
+            //if (basketStr == null)
+            //{
+            //    cookieItems = new List<BasketCookieItemViewModel>();
+            //}
+            //else
+            //{
+            //    cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
+            //}
+            //foreach (var cookieItem in cookieItems)
+            //{
+            //    BasketItemVM item = new BasketItemVM
+            //    {
+            //        Count = cookieItem.Count,
+            //        Product = _context.Products.Include(x=>x.Images).FirstOrDefault(x => x.Id == cookieItem.ProductId)
+            //    };
+            //    basketVM.basketItems.Add(item);
+            //    basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
+            //}
+            //return basketVM;
         }
     }
 }

@@ -3,6 +3,8 @@ using BackendProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Metrics;
 using System.Security.Claims;
 
 namespace BackendProject.Controllers
@@ -75,15 +77,55 @@ namespace BackendProject.Controllers
         }
 
         [Authorize(Roles = "Member")]
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return Json(new
+            AppUser member = await _userManager.FindByNameAsync(User.Identity.Name);
+            ProfileViewModel vm = new ProfileViewModel
             {
-                UserName = User.Identity.Name,
-                Id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
-                Email = User.FindFirst(ClaimTypes.NameIdentifier)?.Value
-            });
+                Member = new MemberUpdateViewModel
+                {
+                    FullName = member.FullName,
+                    Email = member.Email,
+                    Phone = member.PhoneNumber,
+                    UserName = member.UserName,
+                },
+            };
+            return View(vm);
         }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> MemberUpdate(MemberUpdateViewModel memberVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                ProfileViewModel vm = new ProfileViewModel { Member = memberVM };
+                return View("Profile", vm);
+            }
+
+            AppUser member = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            member.FullName = memberVM.FullName;
+            member.Email = memberVM.Email;
+            member.PhoneNumber = memberVM.Phone;
+            member.UserName = memberVM.UserName;
+
+            var result = await _userManager.UpdateAsync(member);
+
+            if (!result.Succeeded)
+            {
+                foreach (var err in result.Errors) ModelState.AddModelError("", err.Description);
+                ProfileViewModel vm = new ProfileViewModel { Member = memberVM };
+                return View("Profile", vm);
+            }
+
+            await _signInManager.SignInAsync(member, false);
+
+            return RedirectToAction("profile");
+        }
+
+
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
