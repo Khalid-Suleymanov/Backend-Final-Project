@@ -1,4 +1,6 @@
-﻿@inject LayoutService _layoutService
+﻿@using BackendProject.Helpers
+
+@inject LayoutService _layoutService
 
 @{
     var categories = _layoutService.GetCategories();
@@ -106,18 +108,18 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li class="active">
-                                                <a asp-controller="home" asp-action="index">
+                                            <li>
+                                                <a asp-action="index" asp-controller="home" class="@Html.ActiveClass("Home","Index")">
                                                     Home
                                                 </a>
                                             </li>
                                             <li>
-                                                <a asp-controller="shop" asp-action="index">
-                                                    shop
+                                                <a asp-action="index" asp-controller="shop" class="@Html.ActiveClass("Shop","Index")">
+                                                    Shop
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact-us.html">Contact us</a>
+                                                <a asp-action="index" asp-controller="contactus" class="@Html.ActiveClass("contactus","Index")">Contact us</a>
                                             </li>
                                         </ul>
                                     </nav>

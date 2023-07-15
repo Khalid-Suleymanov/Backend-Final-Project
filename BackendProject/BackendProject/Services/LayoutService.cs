@@ -77,30 +77,6 @@ namespace BackendProject.Services
 
             return basketVM;
 
-
-
-            //var basketVM = new BasketViewModel();
-            //var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
-            //List<BasketCookieItemViewModel> cookieItems = null;
-            //if (basketStr == null)
-            //{
-            //    cookieItems = new List<BasketCookieItemViewModel>();
-            //}
-            //else
-            //{
-            //    cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
-            //}
-            //foreach (var cookieItem in cookieItems)
-            //{
-            //    BasketItemVM item = new BasketItemVM
-            //    {
-            //        Count = cookieItem.Count,
-            //        Product = _context.Products.Include(x=>x.Images).FirstOrDefault(x => x.Id == cookieItem.ProductId)
-            //    };
-            //    basketVM.basketItems.Add(item);
-            //    basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
-            //}
-            //return basketVM;
         }
     }
 }

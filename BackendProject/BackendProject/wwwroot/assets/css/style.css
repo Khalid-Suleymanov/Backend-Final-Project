@@ -3689,3 +3689,8 @@ fieldset {
     color: #e3a51e; }
 
 /*------- footer bottom end -------*/
+
+
+.main-menu .active {
+    color: #62ab00 !important;
+}

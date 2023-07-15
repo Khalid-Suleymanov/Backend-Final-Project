@@ -23,19 +23,6 @@
 
 $(document).on("click", ".basket-add-btn", function (e) {
     e.preventDefault();
-    let url = $(this).attr("href");
-    fetch(url).then(response => {
-        if (!response.ok) {
-            alert("Xeta bas verdi")
-        }
-        else return response.text()
-    }).then(data => {
-        $(".minicart-inner-content").html(data)
-    })
-})
-
-$(document).on("click", ".basket-add-btn", function (e) {
-    e.preventDefault();
 
     let url = $(this).attr("href");
     fetch(url).then(response => {
@@ -65,9 +52,7 @@ $(document).on("click", ".minicart-close, .offcanvas-close, .offcanvas-overlay",
 
 $(document).on("click", ".remove-btn", function (e) {
     e.preventDefault();
-
     let url = $(this).attr("href");
-
     fetch(url).then(response => {
         if (!response.ok) {
             alert("xeta bas verdi")

@@ -1,4 +1,5 @@
 ﻿using BackendProject.DAL;
+using BackendProject.Migrations;
 using BackendProject.Models;
 using BackendProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,7 @@ namespace BackendProject.Controllers
                 .Include(x => x.ProductSizes)
                 .ThenInclude(p => p.Size)
                 .Include(x => x.Images.Where(x => x.ImageStatus == true)).Take(5).ToList(),
+
                 NewProducts = _context.Products
                 .Include(x => x.Brand)
                 .Include(x => x.Category)
@@ -54,17 +56,12 @@ namespace BackendProject.Controllers
 
         public IActionResult AddToBasket(int id)
         {
-
             BasketViewModel basketVM = new BasketViewModel();
-
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
             {
                 string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
                 var basketItems = _context.BasketItems.Where(x => x.AppUserId == userId).ToList();
-
                 var basketItem = basketItems.FirstOrDefault(x => x.ProductId == id);
-
                 if (basketItem == null)
                 {
                     basketItem = new BasketItem
@@ -79,9 +76,10 @@ namespace BackendProject.Controllers
                 {
                     basketItem.Count++;
                 }
-                _context.SaveChanges();
-                var items = _context.BasketItems.Include(x => x.Product).ThenInclude(x => x.Images.Where(pi => pi.ImageStatus == true)).Where(x => x.AppUserId == userId).ToList();
 
+                _context.SaveChanges();
+
+                var items = _context.BasketItems.Include(x => x.Product).ThenInclude(x => x.Images.Where(pi => pi.ImageStatus == true)).Where(x => x.AppUserId == userId).ToList();
                 foreach (var pi in items)
                 {
                     BasketItemVM item = new BasketItemVM
@@ -131,18 +129,21 @@ namespace BackendProject.Controllers
                     basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
                 }
             }
-
             return PartialView("_BasketPartial", basketVM);
         }
 
 
-          
+
+
+
         public IActionResult ShowBasket()
         {
             var datastr = HttpContext.Request.Cookies["basket"];
             var data = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(datastr);
             return Json(data);
         }
+
+
 
 
 
@@ -157,29 +158,72 @@ namespace BackendProject.Controllers
             };
             return Json(response);
         }
+
+
+
+
+
+
+
+
         public IActionResult RemoveFromBasket(int id)
         {
-            var basketStr = Request.Cookies["basket"];
-
-            List<BasketCookieItemViewModel> cookieItems = null;
-
-            if (basketStr == null)
+            BasketViewModel basketVM = new BasketViewModel();
+            var userId = User.Identity.IsAuthenticated ? User.FindFirstValue(ClaimTypes.NameIdentifier) : null;
+            if (userId != null)
             {
-                cookieItems = new List<BasketCookieItemViewModel>();
+                var basketItem = _context.BasketItems.FirstOrDefault(x => x.AppUserId == userId && x.ProductId == id);
+                if (basketItem == null)
+                {
+                    return View("Error");
+                }
+                else
+                {
+                    _context.BasketItems.Remove(basketItem);
+                    _context.SaveChanges();
+                }
+                var basketItems = _context.BasketItems.Include(x => x.Product).ThenInclude(p => p.Images).Where(x => x.AppUserId == userId).ToList();
+
+                foreach (var item in basketItems)
+                {
+                    BasketItemVM basketItemsVM = new BasketItemVM
+                    {
+                        Count = item.Count,
+                        Product = item.Product
+                    };
+
+                    basketVM.basketItems.Add(basketItemsVM);
+                    basketVM.TotalAmount += (basketItemsVM.Product.DiscountedPrice > 0 ? basketItemsVM.Product.DiscountedPrice : basketItemsVM.Product.SalePrice) * basketItemsVM.Count;
+                }
             }
             else
             {
-                cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
-            }
-            var itemToRemove = cookieItems.FirstOrDefault(x => x.ProductId == id);
-            if (itemToRemove != null)
-            {
-                cookieItems.Remove(itemToRemove);
-                HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(cookieItems));
-            }
-            BasketViewModel basketVM = new BasketViewModel();
-            if (cookieItems != null)
-            {
+                var basketStr = Request.Cookies["basket"];
+
+                List<BasketCookieItemViewModel> cookieItems = null;
+
+                if (basketStr == null)
+                {
+                    cookieItems = new List<BasketCookieItemViewModel>();
+                }
+                else
+                {
+                    cookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(basketStr);
+                }
+                var itemToRemove = cookieItems.FirstOrDefault(x => x.ProductId == id);
+
+
+                if (itemToRemove == null)
+                {
+                    return View("Error");
+                }
+                else
+                {
+                    cookieItems.Remove(itemToRemove);
+                }
+
+                Response.Cookies.Append("basket", JsonConvert.SerializeObject(cookieItems));
+
                 foreach (var ci in cookieItems)
                 {
                     BasketItemVM item = new BasketItemVM
@@ -191,6 +235,7 @@ namespace BackendProject.Controllers
                     basketVM.TotalAmount += (item.Product.DiscountedPrice > 0 ? item.Product.DiscountedPrice : item.Product.SalePrice) * item.Count;
                 }
             }
+
             return PartialView("_BasketPartial", basketVM);
         }
     }
