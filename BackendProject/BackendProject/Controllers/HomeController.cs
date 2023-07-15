@@ -2,9 +2,11 @@
 using BackendProject.Migrations;
 using BackendProject.Models;
 using BackendProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Data;
 using System.Security.Claims;
 
 namespace BackendProject.Controllers
@@ -42,18 +44,11 @@ namespace BackendProject.Controllers
             };
             return View(homeVM);
         }
-
-
-
-
         public IActionResult GetDetail(int id)
         {
             Product product = _context.Products.Include(x => x.Images).FirstOrDefault(x => x.Id == id);
             return PartialView("_ProductModalPartial", product);
         }
-
-
-
         public IActionResult AddToBasket(int id)
         {
             BasketViewModel basketVM = new BasketViewModel();
@@ -131,22 +126,12 @@ namespace BackendProject.Controllers
             }
             return PartialView("_BasketPartial", basketVM);
         }
-
-
-
-
-
         public IActionResult ShowBasket()
         {
             var datastr = HttpContext.Request.Cookies["basket"];
             var data = JsonConvert.DeserializeObject<List<BasketCookieItemViewModel>>(datastr);
             return Json(data);
         }
-
-
-
-
-
         public IActionResult GetBasketCount()
         {
             string? dataStr = HttpContext.Request.Cookies["basket"];
@@ -158,14 +143,6 @@ namespace BackendProject.Controllers
             };
             return Json(response);
         }
-
-
-
-
-
-
-
-
         public IActionResult RemoveFromBasket(int id)
         {
             BasketViewModel basketVM = new BasketViewModel();
@@ -238,6 +215,49 @@ namespace BackendProject.Controllers
 
             return PartialView("_BasketPartial", basketVM);
         }
+        public IActionResult Detail(int id)
+        {
+            var vm = _getProductDetailVM(id);
+
+            if (vm.Product == null) return View("error");
+            return View(vm);
+        }
+        private ProductDetailViewModel _getProductDetailVM(int id)
+        {
+            var product = _context.Products.Include(x=>x.ProductReviews).ThenInclude(pr=>pr.AppUser).Include(x => x.Images.Where(x => x.ImageStatus == true)).Include(x => x.Category).Include(x => x.Brand).Include(x => x.Color).Include(x => x.ProductSizes).ThenInclude(ps=>ps.Size).FirstOrDefault(x => x.Id == id);
+            var vm = new ProductDetailViewModel
+            {
+                Product = product,
+                RelatedProducts = product != null ? _context.Products.Include(x => x.Images.Where(x => x.ImageStatus == true)).Include(x => x.Category).Where(x => x.BrandId == product.BrandId).Take(5).ToList() : null,
+                Review = new ProductReview {ProductId= id},
+            };
+            return vm;
+        }
+
+        [Authorize(Roles = "Member")]
+        [HttpPost]
+        public IActionResult Review(ProductReview review)
+        {
+            if (!ModelState.IsValid)
+            {
+                var vm = _getProductDetailVM(review.ProductId);
+                vm.Review = review;
+                return View("Detail", vm);
+            }
+            Product product = _context.Products.Include(x => x.ProductReviews).FirstOrDefault(x => x.Id == review.ProductId);
+            if (product == null)
+            {
+                return View("error");
+            }
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            review.AppUserId = userId;
+            review.CreatedAt = DateTime.UtcNow.AddHours(4);
+            product.ProductReviews.Add(review);
+            product.Rate = (byte)Math.Ceiling(product.ProductReviews.Average(x => x.Rate));
+            _context.SaveChanges();
+            return RedirectToAction("detail", new { id = review.ProductId });
+        }
+
     }
 
 }

@@ -71,7 +71,7 @@
                         {
                             <div class="product-item mb-50">
                                 <div class="product-thumb">
-                                    <a href="product-details.html">
+                                    <a asp-action="detail" asp-controller="home" asp-route-id="@item.Id">
                                         <img src="~/Manage/Uploads/Products/@item.Images.FirstOrDefault(x=>x.ImageStatus==true).ImageName" alt="" />
                                     </a>
                                 </div>

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\Manage\\Assets\\img\\Background-color-shop.png"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\avatar.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Assets\\img\\avatar.jpg"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\undraw_posting_photo.svg",
       "PackagePath": "staticwebassets\\Manage\\Assets\\img\\undraw_posting_photo.svg"
     },
@@ -7663,10 +7667,6 @@
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\fonts\\ionicons28b5.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\ionicons28b5.woff"
-    },
-    {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\about\\avatar.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about\\avatar.jpg"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\about\\services.jpg",

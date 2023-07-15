@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Bpd/KDUgRjFEMsIBcoBXNxOArDLN4zMcyb9phoxKBBU=",
+  "Hash": "SY8NkLWkFwj5Hjt3YCYEn4of6OSnmF2DSLKM20Ch44M=",
   "Source": "BackendProject",
   "BasePath": "_content/BackendProject",
   "Mode": "Default",
@@ -338,23 +338,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\ionicons28b5.woff"
-    },
-    {
-      "Identity": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\about\\avatar.jpg",
-      "SourceId": "BackendProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\",
-      "BasePath": "_content/BackendProject",
-      "RelativePath": "assets/img/about/avatar.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\about\\avatar.jpg"
     },
     {
       "Identity": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\about\\services.jpg",
@@ -1477,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Manage\\Assets\\css\\sb-admin-2.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\avatar.jpg",
+      "SourceId": "BackendProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\",
+      "BasePath": "_content/BackendProject",
+      "RelativePath": "Manage/Assets/img/avatar.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Manage\\Assets\\img\\avatar.jpg"
     },
     {
       "Identity": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Assets\\img\\Background-color-shop.png",

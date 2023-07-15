@@ -48,6 +48,7 @@ namespace BackendProject.Models
         public GenderStatus Status { get; set; }
         public bool IsNew { get; set; }
         public ICollection<BasketItem> BasketItems { get; set; }
-
+        public byte Rate { get; set; }
+        public ICollection<ProductReview> ProductReviews { get;set; }
     }
 }

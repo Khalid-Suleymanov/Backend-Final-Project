@@ -297,6 +297,9 @@ namespace BackendProject.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
+                    b.Property<byte>("Rate")
+                        .HasColumnType("tinyint");
+
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -315,6 +318,39 @@ namespace BackendProject.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("BackendProject.Models.ProductReview", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("Rate")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Text")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductReviews");
                 });
 
             modelBuilder.Entity("BackendProject.Models.ProductSize", b =>
@@ -722,6 +758,23 @@ namespace BackendProject.Migrations
                     b.Navigation("Color");
                 });
 
+            modelBuilder.Entity("BackendProject.Models.ProductReview", b =>
+                {
+                    b.HasOne("BackendProject.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("BackendProject.Models.Product", "Product")
+                        .WithMany("ProductReviews")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("BackendProject.Models.ProductSize", b =>
                 {
                     b.HasOne("BackendProject.Models.Product", "Product")
@@ -817,6 +870,8 @@ namespace BackendProject.Migrations
                     b.Navigation("BasketItems");
 
                     b.Navigation("Images");
+
+                    b.Navigation("ProductReviews");
 
                     b.Navigation("ProductSizes");
                 });
