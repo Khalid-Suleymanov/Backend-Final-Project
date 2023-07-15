@@ -41,8 +41,11 @@
             </li>
         </ul>
     </div>
-
     <div class="minicart-button">
-        <a asp-action="index" asp-controller="basket" asp-route-id="id"><i class="fa fa-shopping-cart"></i> view cart</a>
+        <a asp-action="checkout" asp-controller="order" asp-route-id="id"><i class="fa fa-share"></i>CheckOut</a>
+    </div>
+    <br />
+    <div class="minicart-button">
+        <a asp-action="index" asp-controller="basket" asp-route-id="id"><i class="fa fa-shopping-cart"></i>View cart</a>
     </div>
 </div>
