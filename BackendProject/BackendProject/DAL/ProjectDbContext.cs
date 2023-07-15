@@ -20,6 +20,10 @@ namespace BackendProject.DAL
         public DbSet<SportOff> SportOffs { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
