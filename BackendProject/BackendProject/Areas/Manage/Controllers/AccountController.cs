@@ -27,17 +27,17 @@ namespace BackendProject.Areas.Manage.Controllers
         //    await _roleManager.CreateAsync(new IdentityRole("Member"));
         //    return Content("created");
         //}
-        public async Task<IActionResult> CreateAdmin()
-        {
-            AppUser admin = new AppUser
-            {
-                FullName = "Super Admin",
-                UserName = "SuperAdmin",
-            };
-            var result = await _userManager.CreateAsync(admin, "Admin123");
-            await _userManager.AddToRoleAsync(admin, "SuperAdmin");
-            return Content("yaradildi");
-        }
+        //public async Task<IActionResult> CreateAdmin()
+        //{
+        //    AppUser admin = new AppUser
+        //    {
+        //        FullName = "Super Admin",
+        //        UserName = "SuperAdmin",
+        //    };
+        //    var result = await _userManager.CreateAsync(admin, "Admin123");
+        //    await _userManager.AddToRoleAsync(admin, "SuperAdmin");
+        //    return Content("yaradildi");
+        //}
         public IActionResult Login()
         {
             return View();

@@ -1,8 +1,5 @@
 ﻿@model MemberUpdateViewModel
-
-
-
-<div class="tab-pane fade show active" id="account-info" role="tabpanel">
+<div class="tab-pane fade @(ViewBag.Tab=="Profile"?"show active":"")" id="account-info" role="tabpanel">
     <div class="myaccount-content col-md-10">
         <h3>Account Details</h3>
         <div class="account-details-form">

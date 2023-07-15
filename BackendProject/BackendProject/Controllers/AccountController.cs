@@ -1,4 +1,5 @@
-﻿using BackendProject.Models;
+﻿using BackendProject.DAL;
+using BackendProject.Models;
 using BackendProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,11 +14,13 @@ namespace BackendProject.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly ProjectDbContext _context;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ProjectDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         public IActionResult Register()
@@ -58,14 +61,14 @@ namespace BackendProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(MemberLoginViewModel memberVM)
+        public async Task<IActionResult> Login(MemberLoginViewModel memberVM, string returnUrl=null)
         {
             if (!ModelState.IsValid) return View();
             AppUser member = await _userManager.FindByNameAsync(memberVM.UserName);
             if (member == null)
             {
                 ModelState.AddModelError("", "UserName or Password incorrect!");
-                return View();
+                return View(); 
             }
             var result = await _signInManager.PasswordSignInAsync(member, memberVM.Password, false, false);
             if (!result.Succeeded)
@@ -73,15 +76,16 @@ namespace BackendProject.Controllers
                 ModelState.AddModelError("", "UserName or Password incorrect!");
                 return View();
             }
-            return RedirectToAction("index", "home");
+            return returnUrl == null ? RedirectToAction("index", "home") : Redirect(returnUrl);
         }
 
         [Authorize(Roles = "Member")]
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile(string tab = "Profile")
         {
+            ViewBag.Tab = tab;
             AppUser member = await _userManager.FindByNameAsync(User.Identity.Name);
             ProfileViewModel vm = new ProfileViewModel
-            {
+            { 
                 Member = new MemberUpdateViewModel
                 {
                     FullName = member.FullName,
@@ -89,11 +93,10 @@ namespace BackendProject.Controllers
                     Phone = member.PhoneNumber,
                     UserName = member.UserName,
                 },
+                Orders = _context.Orders.Include(x => x.OrderItems).Where(x => x.AppUserId == member.Id).ToList()
             };
             return View(vm);
         }
-
-
         [HttpPost]
         [Authorize(Roles = "Member")]
         public async Task<IActionResult> MemberUpdate(MemberUpdateViewModel memberVM)

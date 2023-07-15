@@ -66,19 +66,17 @@ namespace BackendProject.Controllers
             _clearBasket(userId);
             if (userId != null)
             {
-                return RedirectToAction("profile", "account", new { tab = "Orders" });
+                return RedirectToAction("profile", "account", new { tab = "Orders"});
             }
             TempData["Success"] = "Order created successfuly!";
             return RedirectToAction("index", "home");
         }
-
         private List<OrderItem> _generateOrderItems(string userId = null)
         {
             List<OrderItem> items = new List<OrderItem>();
             if (userId != null)
             {
                 var basketItems = _context.BasketItems.Include(x => x.Product).Where(x => x.AppUserId == userId).ToList();
-
                 items = basketItems.Select(x =>
                 new OrderItem
                 {
