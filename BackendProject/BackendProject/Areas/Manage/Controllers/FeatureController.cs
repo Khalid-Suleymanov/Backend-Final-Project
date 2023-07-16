@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
-    [Authorize(Roles = "Admin, SuperAdmin")]
-
+    [Authorize(Roles = "Admin, SuperAdmin, Member")]
     [Area("manage")]
     public class FeatureController : Controller
     {

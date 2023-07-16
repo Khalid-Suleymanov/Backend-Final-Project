@@ -7521,6 +7521,18 @@
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\b2802b43-2b1b-45c3-8610-f72a9740141aBrandLogo-3.png"
     },
     {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\banner-1.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\banner-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\banner-2.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\banner-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\banner-3.jpg",
+      "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\banner-3.jpg"
+    },
+    {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\Manage\\Uploads\\Products\\c6893cad-1c7d-4646-b058-e021a7ae19b4Shop-10.png",
       "PackagePath": "staticwebassets\\Manage\\Uploads\\Products\\c6893cad-1c7d-4646-b058-e021a7ae19b4Shop-10.png"
     },
@@ -7671,18 +7683,6 @@
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\about\\services.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\about\\services.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\banner\\banner-1.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\banner\\banner-2.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\banner\\banner-3.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner-3.jpg"
     },
     {
       "Id": "C:\\Users\\Khalid Suleymanov\\Desktop\\Backend-Project\\BackendProject\\BackendProject\\wwwroot\\assets\\img\\banner\\banner_left.jpg",

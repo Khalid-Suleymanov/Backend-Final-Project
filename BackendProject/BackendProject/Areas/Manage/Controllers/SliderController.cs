@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BackendProject.Areas.Manage.Controllers
 {
-    [Authorize(Roles = "Admin, SuperAdmin")]
+    [Authorize(Roles = "Admin, SuperAdmin, Member")]
 
     [Area("manage")]
     public class SliderController : Controller
@@ -94,8 +94,7 @@ namespace BackendProject.Areas.Manage.Controllers
             var removableImage = existSlider.Image;
             _context.Sliders.Remove(existSlider);
             _context.SaveChanges();
-
-            UpFileManage.Delete(_env.WebRootPath, "Manage/Uploads/Sliiders", removableImage);
+            UpFileManage.Delete(_env.WebRootPath, "Manage/Uploads/Sliders", removableImage);
             return RedirectToAction("index");
         }
     }

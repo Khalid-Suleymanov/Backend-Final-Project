@@ -7,6 +7,7 @@ namespace BackendProject.Models
     public class SportOff
     {
         public int Id { get; set; }
+        public byte Order { get; set; }
         [Required]
         [MaxLength(25)]
         public string Title { get; set; }
