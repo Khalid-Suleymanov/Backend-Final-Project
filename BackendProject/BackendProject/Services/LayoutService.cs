@@ -21,18 +21,18 @@ namespace BackendProject.Services
         {
             return _context.Categories.ToList();
         }
-
         public List<Brand> GetBrands()
         {
             return _context.Brands.ToList();
+        }
+        public Dictionary<string, string> GetSetting()
+        {
+            return _context.Settings.ToDictionary(x => x.Key, x => x.Value);
         }
         public List<Product> GetProducts()
         {
             return _context.Products.ToList();
         }
-
-
-
 
 
         public BasketViewModel GetBasket()
@@ -78,5 +78,6 @@ namespace BackendProject.Services
             return basketVM;
 
         }
+
     }
 }

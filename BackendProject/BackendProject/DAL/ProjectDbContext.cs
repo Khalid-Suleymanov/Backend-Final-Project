@@ -23,8 +23,8 @@ namespace BackendProject.DAL
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProductReview> ProductReviews { get; set; }
-
-
+        public DbSet<UserContact> UserContacts { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

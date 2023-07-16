@@ -165,20 +165,7 @@
                                     <div class="top-bar-right">
                                         <div class="product-short">
                                             <p>Sort By : </p>
-                                            <select class="nice-select" name="sortby">
-                                                <option value="trending">Relevance</option>
-                                                <option value="sales">
-                                                    Name (A - Z)
-                                                </option>
-                                                <option value="sales">
-                                                    Name (Z - A)
-                                                </option>
-                                                <option value="rating">
-                                                    Price (Low &gt; High)
-                                                </option>
-                                                <option value="date">
-                                                    Price (High &gt; Low)
-                                                </option>
+                                            <select onchange="this.form.submit()" class="form-control nice-select sort-select mr-0" name="sortby" asp-items="@Model.SortItems">
                                             </select>
                                         </div>
                                     </div>
