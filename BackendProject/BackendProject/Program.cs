@@ -1,4 +1,5 @@
 using BackendProject.DAL;
+using BackendProject.Emails;
 using BackendProject.Models;
 using BackendProject.Services;
 using Microsoft.AspNetCore.Identity;
@@ -18,7 +19,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.Password.RequireNonAlphanumeric = false;
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<ProjectDbContext>();
 
-
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Events.OnRedirectToAccessDenied = options.Events.OnRedirectToLogin = context =>
@@ -35,9 +35,7 @@ builder.Services.ConfigureApplicationCookie(options =>
         return Task.CompletedTask;
     };
 });
-
 var app = builder.Build();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
