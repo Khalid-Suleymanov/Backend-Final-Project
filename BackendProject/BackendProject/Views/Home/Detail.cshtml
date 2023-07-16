@@ -1,4 +1,5 @@
-﻿@model ProductDetailViewModel
+﻿﻿@using System.Security.Claims;
+@model ProductDetailViewModel
 @{
     ViewData["Title"] = "Detail";
 }
@@ -21,7 +22,6 @@
             </div>
         </div>
     </div>
-
     <div class="product-details-wrapper section-padding">
         <div class="container custom-container">
             <div class="row">
@@ -38,12 +38,10 @@
                                     }
                                 </div>
                                 <div class="pro-nav slick-row-5">
-                                    @foreach (var item in Model.Product.Images)
-                                    {
-                                        <div class="pro-large-img img-zoom">
-                                            <img src="~/Manage/Uploads/Products/@item.ImageName" alt="" />
-                                        </div>
-                                    }
+                                    <div class="pro-nav-thumb"><img src="/Manage/Uploads/Products/5d983f37-c933-4a20-acca-a60f8c814a70shop-6.png" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="/Manage/Uploads/Products/7eae8db6-8f33-4530-9137-04cf7fc9ff98SaveProduct-1.png" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="/Manage/Uploads/Products/e6e130d9-c614-4215-9efb-58181216718bSaveProduct-3.png" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="/Manage/Uploads/Products/ed33a8f5-7a63-4e36-9108-9fa33cd4d2f8Shop-11.png" alt="" /></div>
                                 </div>
                             </div>
                             <div class="col-lg-7">
@@ -148,7 +146,7 @@
                                             <div class="product-item mb-50">
                                                 <div class="product-thumb">
                                                     <a asp-action="detail" asp-controller="home" asp-route-id="@item.Id">
-                                                        <img src="~/Manage/Uploads/Products/@item.Images" alt="">
+                                                        <img src="~/Manage/Uploads/Products/@item.Images.FirstOrDefault(x=>x.ImageStatus==true).ImageName" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-content">

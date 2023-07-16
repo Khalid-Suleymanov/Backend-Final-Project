@@ -228,13 +228,12 @@ namespace BackendProject.Controllers
             var vm = new ProductDetailViewModel
             {
                 Product = product,
-                RelatedProducts = product != null ? _context.Products.Include(x => x.Images.Where(x => x.ImageStatus == true)).Include(x => x.Category).Where(x => x.BrandId == product.BrandId).Take(5).ToList() : null,
+                RelatedProducts = product != null ? _context.Products.Include(x=>x.Brand).Include(x => x.Images.Where(x => x.ImageStatus == true)).Include(x => x.Category).Where(x => x.BrandId == product.BrandId).Take(5).ToList() : null,
                 Review = new ProductReview {ProductId= id},
             };
             return vm;
         }
-
-        [Authorize(Roles = "Member")]
+        [Authorize]
         [HttpPost]
         public IActionResult Review(ProductReview review)
         {

@@ -22,7 +22,6 @@ namespace BackendProject.Controllers
             _signInManager = signInManager;
             _context = context;
         }
-
         public IActionResult Register()
         {
             return View();
@@ -54,12 +53,10 @@ namespace BackendProject.Controllers
 
             return RedirectToAction("Login");
         }
-
         public IActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Login(MemberLoginViewModel memberVM, string returnUrl=null)
         {
@@ -78,7 +75,6 @@ namespace BackendProject.Controllers
             }
             return returnUrl == null ? RedirectToAction("index", "home") : Redirect(returnUrl);
         }
-
         [Authorize(Roles = "Member")]
         public async Task<IActionResult> Profile(string tab = "Profile")
         {
@@ -127,13 +123,58 @@ namespace BackendProject.Controllers
 
             return RedirectToAction("profile");
         }
-
-
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("index", "home");
         }
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
 
+            if (user == null) return View("error");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var url = Url.Action("verifytoken", "account", new { email = email, token = token }, Request.Scheme);
+
+            return Json(new
+            {
+                url = url
+            });
+        }
+        public async Task<IActionResult> VerifyToken(string email, string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token))
+            {
+                TempData["Email"] = email;
+                TempData["Token"] = token;
+                return RedirectToAction("ResetPassword");
+            }
+            return View("error");
+        }
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+       
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPassword)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            var result = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.Password);
+            if (!result.Succeeded)
+            {
+                return View("error");
+            }
+            return RedirectToAction("login");
+        }
+       
     }
 }

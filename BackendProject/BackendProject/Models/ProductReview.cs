@@ -8,7 +8,6 @@ namespace BackendProject.Models
         public string AppUserId { get; set; }
         public int ProductId { get; set; }
         [Required]
-        [Range(1, 5)]
         public byte Rate { get; set; }
         [MaxLength(500)]
         public string Text { get; set; }

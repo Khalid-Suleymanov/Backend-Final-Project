@@ -18,6 +18,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.Password.RequireNonAlphanumeric = false;
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<ProjectDbContext>();
 
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Events.OnRedirectToAccessDenied = options.Events.OnRedirectToLogin = context =>
