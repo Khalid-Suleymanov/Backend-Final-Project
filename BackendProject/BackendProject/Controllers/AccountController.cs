@@ -136,13 +136,9 @@ namespace BackendProject.Controllers
         public async Task<IActionResult> ForgotPassword(string email)
         {
             AppUser user = await _userManager.FindByEmailAsync(email);
-
             if (user == null) return View("error");
-
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
             var url = Url.Action("verifytoken", "account", new { email = email, token = token }, Request.Scheme);
-
             return Json(new
             {
                 url = url
