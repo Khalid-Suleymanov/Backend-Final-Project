@@ -129,15 +129,17 @@
                             </div>
                             <div class="sidebar-body">
                                 <div class="price-range-wrap">
-                                    <div class="price-range" data-min="20" data-max="400"></div>
+                                    <div class="price-range" data-min="@Model.SelectedMinPrice" data-max="@Model.SelectedMaxPrice"></div>
                                     <div class="range-slider">
                                         <form method="get" id="filterForm">
                                             <div class="price-input">
                                                 <label for="amount">Price: </label>
                                                 <input type="text" id="amount">
+                                                <input type="hidden" name="minPrice" id="minPriceInput" form="formFilter" value="@Model.SelectedMinPrice">
+                                                <input type="hidden" name="maxPrice" id="maxPriceInput" form="formFilter" value="@Model.SelectedMaxPrice">
                                             </div>
                                             <button class="w-100 filter-btn">filter</button>
-                                        </form>
+                                            </form>
                                     </div>
                                 </div>
                             </div>
@@ -176,18 +178,6 @@
                                                 </option>
                                                 <option value="date">
                                                     Price (High &gt; Low)
-                                                </option>
-                                                <option value="price-asc">
-                                                    Rating (Highest)
-                                                </option>
-                                                <option value="price-asc">
-                                                    Rating (Lowest)
-                                                </option>
-                                                <option value="price-asc">
-                                                    Model (A - Z)
-                                                </option>
-                                                <option value="price-asc">
-                                                    Model (Z - A)
                                                 </option>
                                             </select>
                                         </div>
@@ -319,3 +309,23 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $(".price-range").slider({
+            range: true,
+            min: @Model.MinPrice,
+            max: @Model.MaxPrice,
+            values: [@Model.SelectedMinPrice, @Model.SelectedMaxPrice],
+            slide: function(event, ui){
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+        },
+            change: function(event, ui){
+                console.log("changed")
+                $("#minPriceInput").val(ui.values[0]);
+                $("#maxPriceInput").val(ui.values[1]);
+            },
+        });
+        $("#amount").val(" $" + $(".price-range").slider("values", 0) + " - $" + $(".price-range").slider("values", 1));
+    </script>
+}

@@ -13,7 +13,6 @@ namespace BackendProject.Controllers
     public class ShopController : Controller
     {
         private readonly ProjectDbContext _context;
-
         public ShopController(ProjectDbContext context)
         {
             _context = context;
@@ -22,8 +21,8 @@ namespace BackendProject.Controllers
         {
             ShopViewModel vm = new ShopViewModel();
             var query = _context.Products.Include(x => x.Images.Where(x => x.ImageStatus != null)).Include(x => x.Category).AsQueryable();
-            vm.MinPrice = query.Min(x => x.SalePrice);
-            vm.MaxPrice = query.Max(x => x.SalePrice);
+            vm.MinPrice = (int)query.Min(x => x.SalePrice);
+            vm.MaxPrice = (int)query.Max(x => x.SalePrice);
             if (categoryId.Count >0)
             {
                 query = query.Where(x => categoryId.Contains(x.CategoryId));
@@ -38,7 +37,7 @@ namespace BackendProject.Controllers
             }
             if (minPrice != null && maxPrice != null)
             {
-                query = query.Where(x => x.SalePrice >= minPrice && x.SalePrice <= maxPrice);
+                query = query.Where(x => (int)x.SalePrice >= (int)minPrice && (int)x.SalePrice <= (int)maxPrice);
             }
             switch (sort)
             {

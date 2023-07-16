@@ -22,16 +22,12 @@ namespace BackendProject.Areas.Manage.Controllers
             var query = _context.Orders.Include(x => x.OrderItems).AsQueryable();
             return View(PaginatedList<Order>.Create(query, page, 4));
         }
-
         public IActionResult Edit(int id)
         {
             Order order = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Product).FirstOrDefault(x => x.Id == id);
-
             if (order == null) return View("error");
-
             return View(order);
         }
-
         public async Task<IActionResult> Accept(int id)
         {
             Order order = _context.Orders.Find(id);
@@ -43,7 +39,6 @@ namespace BackendProject.Areas.Manage.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public async Task<IActionResult> Reject(int id)
         {
             Order order = _context.Orders.Find(id);
